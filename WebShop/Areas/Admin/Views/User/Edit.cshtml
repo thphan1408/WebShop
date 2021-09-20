@@ -1,0 +1,65 @@
+﻿@model Model.EF.Account
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    Cập nhật mới user
+}
+<div class="container">
+    @using (Html.BeginForm("Edit", "User", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4>Cập nhật thông tin user</h4>
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.UserName, new { @class = "form" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.Name, new { @class = "form" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.Address, new { @class = "form" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.Email, new { @class = "form" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.Phone, new { @class = "form" })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, new { @class = "control-label col-md-2" })
+                @Html.CheckBoxFor(model => model.Status, new { @class = "form" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-default">Cập nhật mới</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
